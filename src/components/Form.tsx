@@ -2,6 +2,9 @@ import React from "react";
 import Todo from "./Todo";
 
 class Form extends React.Component {
+  state = {
+    newTodo: ""
+  };
   render() {
     return (
       <form>
