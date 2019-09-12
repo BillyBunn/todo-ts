@@ -1,4 +1,5 @@
 import React from "react";
+import uuid from "uuid/v4";
 import Form from "./Form";
 import List from "./List";
 
@@ -20,11 +21,20 @@ class App extends React.Component<Props, State> {
     ]
   };
 
+  handleSubmit = text => {
+    const newTodo = {
+      text,
+      complete: false,
+      id: uuid()
+    };
+    this.setState({ todos: [...this.state.todos, newTodo] });
+  };
+
   render() {
     return (
       <>
         <header>Todo list</header>
-        <Form />
+        <Form handleSubmit={this.handleSubmit} />
         <List todos={this.state.todos} />
       </>
     );

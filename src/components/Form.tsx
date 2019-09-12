@@ -1,14 +1,21 @@
 import React from "react";
-import Todo from "./Todo";
 
 class Form extends React.Component {
   state = {
     newTodo: ""
   };
+  handleChange(e) {
+    this.setState({ newTodo: e.target.value });
+  }
+  handleSubmit(e) {
+    e.preventDefault();
+    e.target.reset();
+    this.props.handleSubmit(this.state.newTodo);
+  }
   render() {
     return (
-      <form>
-        <input type="text" />
+      <form onSubmit={this.handleSubmit}>
+        <input type="text" onChange={this.handleChange} />
         <input type="submit" />
       </form>
     );
