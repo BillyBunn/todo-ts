@@ -1,22 +1,33 @@
 import React from "react";
 
-class Form extends React.Component {
+type Props = {
+  handleSubmit: (text: string) => void;
+};
+type State = {
+  newTodo: string;
+};
+
+class Form extends React.Component<Props, State> {
   state = {
     newTodo: ""
   };
-  handleChange(e) {
+  handleChange = e => {
     this.setState({ newTodo: e.target.value });
-  }
-  handleSubmit(e) {
+  };
+  handleSubmit = e => {
     e.preventDefault();
     e.target.reset();
     this.props.handleSubmit(this.state.newTodo);
-  }
+  };
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <input type="text" onChange={this.handleChange} />
-        <input type="submit" />
+        <input
+          type="text"
+          placeholder="New todo item"
+          onChange={this.handleChange}
+        />
+        <input type="submit" value="Add" />
       </form>
     );
   }

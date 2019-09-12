@@ -1,40 +1,29 @@
 import React from "react";
-import uuid from "uuid/v4";
+import { Todo } from "../models";
 import Form from "./Form";
 import List from "./List";
 
-type Props = {};
-type State = {
-  todos: TodoItem[];
-};
-type TodoItem = {
-  id: string;
-  complete: boolean;
-  text: string;
-};
+type State = typeof initialState;
 
-class App extends React.Component<Props, State> {
-  state = {
-    todos: [
-      { text: "a thing", complete: false, id: "1" },
-      { text: "another thing", complete: false, id: "2" }
-    ]
-  };
+const initialState = Object.freeze({
+  // Todo used as type
+  todos: [] as null | Todo[]
+  // todos: [{id: '1', done: false, description: 'foo'}]
+});
 
-  handleSubmit = text => {
-    const newTodo = {
-      text,
-      complete: false,
-      id: uuid()
-    };
-    this.setState({ todos: [...this.state.todos, newTodo] });
+class App extends React.Component<{}, State> {
+  readonly state = initialState;
+  handleTodoCreation = (text: string) => {
+    const newTodo = Todo(text);
+    const todos = [...this.state.todos, newTodo];
+    this.setState({ todos });
   };
 
   render() {
     return (
       <>
         <header>Todo list</header>
-        <Form handleSubmit={this.handleSubmit} />
+        <Form handleSubmit={this.handleTodoCreation} />
         <List todos={this.state.todos} />
       </>
     );
