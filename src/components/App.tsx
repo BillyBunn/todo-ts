@@ -4,12 +4,11 @@ import List from "./List";
 // Todo is both factory and type
 import { Todo } from "../models";
 
-type State = typeof initialState;
-
 const initialState = Object.freeze({
   // Todo used as type
   todos: [] as Todo[]
 });
+type State = typeof initialState;
 
 class App extends React.Component<{}, State> {
   readonly state = initialState;
@@ -21,11 +20,17 @@ class App extends React.Component<{}, State> {
   };
 
   handleTodoCompletion = (id: string) => {
-    console.log(id, "completed");
-    let todos = this.state.todos.map(todo =>
-      todo.id === id ? { ...todo, done: !todo.done } : todo
-    );
-    this.setState({ todos });
+    this.setState({
+      todos: this.state.todos.map(todo =>
+        todo.id === id ? { ...todo, done: !todo.done } : todo
+      )
+    });
+  };
+
+  handleTodoDeletion = (id: string) => {
+    this.setState({
+      todos: this.state.todos.filter(todo => todo.id !== id)
+    });
   };
 
   render() {
@@ -36,6 +41,7 @@ class App extends React.Component<{}, State> {
         <List
           todos={this.state.todos}
           handleTodoCompletion={this.handleTodoCompletion}
+          handleTodoDeletion={this.handleTodoDeletion}
         />
       </>
     );

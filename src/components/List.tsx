@@ -4,6 +4,7 @@ import { Todo } from "../models";
 type Props = {
   todos: Todo[];
   handleTodoCompletion: (id: string) => void;
+  handleTodoDeletion: (id: string) => void;
 };
 
 class List extends React.Component<Props, {}> {
@@ -18,7 +19,9 @@ class List extends React.Component<Props, {}> {
             >
               {text}
             </span>
-            <button>delete</button>
+            <button onClick={() => this.props.handleTodoDeletion(id)}>
+              delete
+            </button>
           </li>
         ))}
       </ul>
