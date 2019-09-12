@@ -1,0 +1,105 @@
+
+$action-color: #9d79d6;
+$base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$background-color:#e7ecee;
+
+form {
+	background: $background-color;
+  border-radius: 8px;
+  font-family: $base-font;
+  max-width: 30em;
+	margin: 1em auto;
+  padding: 2em;
+
+  > * {
+    display: inline;
+  }
+
+  input[type="text"] {
+    background-color: darken($background-color, 10%);
+    box-shadow: 0 1.5px 0 darken($background-color, 12%) inset;
+    box-sizing: border-box; 
+    color: darken($background-color, 50%);
+    border: none;
+    border-radius: 8px;
+    font-family: $base-font;
+    font-size: 15px;
+    margin: 0 1em 0 0;
+    outline: 0;
+    padding: .8em;
+    width: 100%;
+    max-width:20em;
+    &:focus {
+      background: darken($background-color, 5%);
+    }
+  }
+  input[type="submit"] {
+    background: $action-color;
+    border: 1px solid darken($action-color, 10%);
+    border-radius: 3px;
+    border-width: 1px 1px 4px;
+    color: #fff;
+    font-size: 1em;
+    padding: 1em 2em;
+    &:hover {
+      background: darken($action-color, 10%);
+    }
+  }
+}
+
+  ul {
+    font-family: $base-font;
+    list-style-type:none;
+    max-width: 30em;
+    margin: 1em auto;
+    // padding: 1em;
+
+      li {
+          align-items: center;
+          display:flex;
+          flex-flow:row nowrap;
+          font-size: .1.5em;
+          margin: .5em 0em;
+          padding: .05em;
+          width: 100%;
+          max-width:20em;
+
+          &.done {
+            span {
+              background: salmon;
+              text-decoration:line-through;
+              &:hover {
+                 background: lightgreen;
+              }
+            }
+          }
+
+          span {
+              background: #e0e0e0;
+              border-radius: 8px;
+              cursor:pointer;
+              flex-grow: 1;
+              padding: 1em;
+              &:hover {
+                  background: pink;
+              }
+          }
+          //  span, input {
+          //      border: .5px solid #eee;
+          //      display:inline-block;
+          //      padding: .2em .25em;
+          //      width: 300px;
+          //  }
+
+          button {
+              background: transparent;
+              border:none;
+              color: darkcyan;
+              cursor:pointer;
+              padding:0;
+              margin: 0 .75em;
+          }
+
+      }
+  }
+

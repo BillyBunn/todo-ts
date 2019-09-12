@@ -12,11 +12,8 @@ class List extends React.Component<Props, {}> {
     return (
       <ul>
         {this.props.todos.map(({ id, text, done }) => (
-          <li key={id}>
-            <span
-              style={{ textDecoration: done ? "line-through" : "" }}
-              onClick={() => this.props.handleTodoCompletion(id)}
-            >
+          <li key={id} className={done ? "done" : ""}>
+            <span onClick={() => this.props.handleTodoCompletion(id)}>
               {text}
             </span>
             <button onClick={() => this.props.handleTodoDeletion(id)}>

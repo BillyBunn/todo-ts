@@ -4,9 +4,16 @@ import List from "./List";
 // Todo is both factory and type
 import { Todo } from "../models";
 
+import "./styles.scss";
+
 const initialState = Object.freeze({
   // Todo used as type
-  todos: [] as Todo[]
+  todos: [
+    { id: "1", text: "a task", done: false },
+    { id: "2", text: "another task", done: false },
+    { id: "3", text: "do this thing", done: true },
+    { id: "4", text: "another thing to do", done: false }
+  ] as Todo[]
 });
 type State = typeof initialState;
 
