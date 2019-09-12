@@ -1,9 +1,9 @@
 import uuid from "uuid/v4";
 
-export const Todo = (description: string) => ({
+export const Todo = (text: string) => ({
   id: uuid(),
   done: false,
-  description
+  text
 });
 
 export interface Todo extends ReturnType<typeof Todo> {}

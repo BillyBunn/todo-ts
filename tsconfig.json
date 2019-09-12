@@ -11,6 +11,7 @@
         ],
         "jsx": "react",
         "esModuleInterop": true,
+        "downlevelIteration": true,
         "noImplicitAny": true,
         "noImplicitThis": true,
         "alwaysStrict": true,

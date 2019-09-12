@@ -1,7 +1,7 @@
 import React from "react";
 
 type Props = {
-  handleSubmit: (text: string) => void;
+  handleTodoCreation: (text: string) => void;
 };
 type State = {
   newTodo: string;
@@ -11,13 +11,14 @@ class Form extends React.Component<Props, State> {
   state = {
     newTodo: ""
   };
-  handleChange = e => {
-    this.setState({ newTodo: e.target.value });
+  handleChange = (e: React.FormEvent<HTMLInputElement>) => {
+    this.setState({ newTodo: e.currentTarget.value });
   };
-  handleSubmit = e => {
+  handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    e.target.reset();
-    this.props.handleSubmit(this.state.newTodo);
+    e.currentTarget.reset();
+    this.state.newTodo && this.props.handleTodoCreation(this.state.newTodo);
+    this.setState({ newTodo: "" });
   };
   render() {
     return (
