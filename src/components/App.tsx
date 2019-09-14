@@ -9,10 +9,10 @@ import "./styles.scss";
 const initialState = Object.freeze({
   // Todo used as type
   todos: [
-    { id: "1", text: "a task", done: false },
-    { id: "2", text: "another task", done: false },
-    { id: "3", text: "do this thing", done: true },
-    { id: "4", text: "another thing to do", done: false }
+    { id: "1", text: "a task", done: false, editing: false },
+    { id: "2", text: "another task", done: false, editing: false },
+    { id: "3", text: "do this thing", done: true, editing: false },
+    { id: "4", text: "another thing to do", done: false, editing: false }
   ] as Todo[]
 });
 type State = typeof initialState;
@@ -27,7 +27,8 @@ class App extends React.Component<{}, State> {
   };
 
   handleTodoCompletion = (id: string) => {
-    if (!this.state.todos.filter(todo => todo.id !== id)[0].editing) return;
+    // can't complete if editing
+    if (this.state.todos.filter(todo => todo.id === id)[0].editing) return;
     this.setState({
       todos: this.state.todos.map(todo =>
         todo.id === id ? { ...todo, done: !todo.done } : todo
