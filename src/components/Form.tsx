@@ -24,9 +24,10 @@ class Form extends React.Component<Props, State> {
     return (
       <form onSubmit={this.handleSubmit}>
         <input
-          type="text"
-          placeholder="New todo item"
+          name="newTodo"
           onChange={this.handleChange}
+          placeholder="New todo item"
+          type="text"
         />
         <input type="submit" value="Add" />
       </form>

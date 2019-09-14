@@ -5,17 +5,19 @@ type Props = {
   todos: Todo[];
   handleTodoCompletion: (id: string) => void;
   handleTodoDeletion: (id: string) => void;
+  handleTodoEdit: (id: string) => void;
 };
 
 class List extends React.Component<Props, {}> {
   render() {
     return (
       <ul>
-        {this.props.todos.map(({ id, text, done }) => (
+        {this.props.todos.map(({ id, text, done, editing }) => (
           <li key={id} className={done ? "done" : ""}>
+            {/* <button onClick={() => this.props.handleTodoEdit(id)}>Edit</button> */}
             <input
               type="text"
-              readOnly
+              readOnly={!editing}
               value={text}
               onClick={() => this.props.handleTodoCompletion(id)}
             />

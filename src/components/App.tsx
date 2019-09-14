@@ -27,6 +27,7 @@ class App extends React.Component<{}, State> {
   };
 
   handleTodoCompletion = (id: string) => {
+    if (!this.state.todos.filter(todo => todo.id !== id)[0].editing) return;
     this.setState({
       todos: this.state.todos.map(todo =>
         todo.id === id ? { ...todo, done: !todo.done } : todo
@@ -40,6 +41,14 @@ class App extends React.Component<{}, State> {
     });
   };
 
+  handleTodoEdit = (id: string) => {
+    this.setState({
+      todos: this.state.todos.map(todo =>
+        todo.id === id ? { ...todo, editing: !todo.editing } : todo
+      )
+    });
+  };
+
   render() {
     return (
       <>
@@ -49,6 +58,7 @@ class App extends React.Component<{}, State> {
           todos={this.state.todos}
           handleTodoCompletion={this.handleTodoCompletion}
           handleTodoDeletion={this.handleTodoDeletion}
+          handleTodoEdit={this.handleTodoEdit}
         />
       </>
     );
