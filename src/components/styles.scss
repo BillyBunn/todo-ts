@@ -4,11 +4,22 @@ $delete-color: rgb(236, 109, 109);
 $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 $background-color:#e7ecee;
 
+body, html {
+  font-family: $base-font;
+  margin: 0;
+}
+
+h1 {
+  color: darken($background-color, 60%);
+  text-align: center;
+}
+
 form {
 	background: $background-color;
   border-radius: 8px;
-  font-family: $base-font;
   padding: 2em;
+  margin: 0 auto;
+  max-width: 30em;
   text-align: center;
 
   > * {
@@ -22,7 +33,6 @@ form {
     color: darken($background-color, 50%);
     border: none;
     border-radius: 8px;
-    font-family: $base-font;
     font-size: 15px;
     margin: 0 1em 0 0;
     outline: 0;
@@ -48,14 +58,14 @@ form {
 }
 
   ul {
-  font-family: $base-font;
+  // font-family: $base-font;
   list-style-type:none;
   margin: 0em;
   padding: 1em 2em;
   text-align: center;
     li {
       font-size: .1.5em;
-      margin: .125em 0em;
+      margin: .8em 0em;
       width: 100%;
 
           &.done {
@@ -78,7 +88,7 @@ form {
             color: darken($background-color, 50%);
             border: none;
             border-radius: 8px;
-            font-family: $base-font;
+            // font-family: $base-font;
             font-size: 1em;
             margin: 0 1.55em 0 0;
             outline: 0;
