@@ -13,11 +13,14 @@ class List extends React.Component<Props, {}> {
       <ul>
         {this.props.todos.map(({ id, text, done }) => (
           <li key={id} className={done ? "done" : ""}>
-            <span onClick={() => this.props.handleTodoCompletion(id)}>
-              {text}
-            </span>
+            <input
+              type="text"
+              readOnly
+              value={text}
+              onClick={() => this.props.handleTodoCompletion(id)}
+            />
             <button onClick={() => this.props.handleTodoDeletion(id)}>
-              delete
+              &times;
             </button>
           </li>
         ))}
