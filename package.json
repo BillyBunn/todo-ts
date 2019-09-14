@@ -27,5 +27,13 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
+  "jest": {
+    "setupFiles": ["<rootDir>/test-shim.js", "<rootDir>/test-setup.js"],
+    "moduleFileExtensions": ["ts", "tsx", "js"],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "<rootDir>/test-preprocessor.js"
+    },
+    "testMatch": ["**/__tests__/*.(ts|tsx|js)"]
+  },
   "browserslist": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"]
 }

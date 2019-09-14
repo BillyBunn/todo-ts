@@ -1,8 +1,8 @@
 import React from "react";
 import { shallow, render, mount } from "enzyme";
-import renderer from "react-test-renderer";
+// import renderer from "react-test-renderer";
 // import Counter from "components/counter/counter.js";
-import List from "../../components/List";
+import List from "./List";
 
 describe("<List /> (Enzyme Test)", () => {
   it("is alive at application start", () => {
