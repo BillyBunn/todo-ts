@@ -1,1 +1,1 @@
-Todo list in TYPEscript
+Todo list in TypeScript
