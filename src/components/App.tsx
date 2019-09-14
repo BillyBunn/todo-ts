@@ -43,7 +43,6 @@ class App extends React.Component<{}, State> {
   render() {
     return (
       <>
-        <header>Todo list</header>
         <Form handleTodoCreation={this.handleTodoCreation} />
         <List
           todos={this.state.todos}
